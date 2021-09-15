@@ -21,7 +21,7 @@ function App() {
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/reset">Password Rest</Link>
+              <Link to="/reset">Password Reset</Link>
             </li>
             <li>
               <Link to="/dashboard">Dashboard</Link>
@@ -33,9 +33,6 @@ function App() {
             <Login />
           </Route>
           <Route path="/reset">
-            <Login />
-          </Route>
-          <Route path="/login">
             <PasswordReset />
           </Route>
           <Route path="/dashboard">

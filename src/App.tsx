@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -65,10 +65,29 @@ const PasswordReset = () => (
   </div>
 );
 
-const Dashboard = () => (
-  <div>
-    <h2>Dashboard</h2>
-  </div>
-);
+const Dashboard = () => {
+  const [privateData, setPrivateData] = useState<{ someSecretData: string }>();
+
+  // Get private data
+  useEffect(() => {
+    (async () => {
+      try {
+        const result = await fetch("http://localhost:3010/data")
+        .then((response) => response.json());
+        setPrivateData(result);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+  return (
+    <div>
+      <h2>Dashboard</h2>
+      <h3>Private data</h3>
+      <pre>{JSON.stringify(privateData, null, 2)}</pre>
+    </div>
+  );
+};
 
 export default App;

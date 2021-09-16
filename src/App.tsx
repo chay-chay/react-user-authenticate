@@ -10,6 +10,20 @@ import {
 
 import Userfront from '@userfront/react';
 
+Userfront.init("xbpd5zbz");
+
+const SignupForm = Userfront.build({
+  toolId: "manddk"
+});
+
+const LoginForm = Userfront.build({
+  toolId: "mandmb"
+});
+
+const LogoutButton = Userfront.build({
+  toolId: "ddroob"
+});
+
 function App() {
   return (
     <Router>
@@ -52,18 +66,26 @@ function App() {
 const Home = () => (
   <div>
     <h2>Home</h2>
+    <SignupForm /> 
+    {/* SignupForm from userfront */}
   </div>
 );
+
+const PasswordResetForm = Userfront.build({
+  toolId: "araoom"
+});
 
 const Login = () => (
   <div>
     <h2>Login</h2>
+    <LoginForm />
   </div>
 );
 
 const PasswordReset = () => (
   <div>
     <h2>PasswordReset</h2>
+    <PasswordResetForm />
   </div>
 );
 
@@ -83,12 +105,25 @@ const Dashboard = () => {
     })();
   }, []);
 
+  // accessToken return true or false
+  if (!Userfront.accessToken()) {
+    return (
+      <Redirect
+        to={{
+          pathname: '/login',
+        }}
+      />
+    );
+  }
+
   return (
     <div>
       <h2>Dashboard</h2>
       <h3>Private data</h3>
       {/* JSON.stringify(value, replacer, space) */}
       <pre>{JSON.stringify(privateData, null, 2)}</pre>
+
+      <LogoutButton />
     </div>
   );
 };

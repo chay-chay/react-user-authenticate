@@ -21,6 +21,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "index.d.ts" // tell typescript to look for this file
   ]
 }

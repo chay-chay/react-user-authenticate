@@ -8,6 +8,8 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import UserFront  from '@userfront/react'
+
 function App() {
   return (
     <Router>
@@ -85,6 +87,7 @@ const Dashboard = () => {
     <div>
       <h2>Dashboard</h2>
       <h3>Private data</h3>
+      {/* JSON.stringify(value, replacer, space) */}
       <pre>{JSON.stringify(privateData, null, 2)}</pre>
     </div>
   );

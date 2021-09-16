@@ -124,8 +124,9 @@ const userData = JSON.parse(atob(Userfront.accessToken().split('.')[1]))
       <h2>Dashboard</h2>
       <h3>User data</h3>
       <pre>{JSON.stringify(userData, null, 2)}</pre>
-      {/* JSON.stringify(value, replacer, space) */}
+      <h3>Private Data</h3>
       <pre>{JSON.stringify(privateData, null, 2)}</pre>
+      {/* JSON.stringify(value, replacer, space) */}
 
       <LogoutButton />
     </div>

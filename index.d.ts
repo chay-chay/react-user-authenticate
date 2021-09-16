@@ -1,1 +1,1 @@
-declare module '@usefront/react'
+declare module "@userfront/react";

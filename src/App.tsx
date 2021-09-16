@@ -8,7 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import UserFront  from '@userfront/react'
+import Userfront from '@userfront/react';
 
 function App() {
   return (

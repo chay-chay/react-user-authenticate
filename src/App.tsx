@@ -96,8 +96,11 @@ const Dashboard = () => {
   useEffect(() => {
     (async () => {
       try {
-        const result = await fetch("http://localhost:3010/data")
-        .then((response) => response.json());
+        const result = await fetch('http://localhost:3010/data', {
+          headers: {
+            Authorization: `Bearer ${Userfront.accessToken()}`,
+          },
+        }).then((response) => response.json());
         setPrivateData(result);
       } catch (error) {
         console.log(error);
@@ -117,7 +120,7 @@ const Dashboard = () => {
   }
 
   console.log(Userfront)
-const userData = JSON.parse(atob(Userfront.accessToken().split('.')[1]))
+  const userData = JSON.parse(atob(Userfront.accessToken().split('.')[1]));
 
   return (
     <div>

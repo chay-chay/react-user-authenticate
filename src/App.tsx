@@ -116,10 +116,14 @@ const Dashboard = () => {
     );
   }
 
+  console.log(Userfront)
+const userData = JSON.parse(atob(Userfront.accessToken().split('.')[1]))
+
   return (
     <div>
       <h2>Dashboard</h2>
-      <h3>Private data</h3>
+      <h3>User data</h3>
+      <pre>{JSON.stringify(userData, null, 2)}</pre>
       {/* JSON.stringify(value, replacer, space) */}
       <pre>{JSON.stringify(privateData, null, 2)}</pre>
 
